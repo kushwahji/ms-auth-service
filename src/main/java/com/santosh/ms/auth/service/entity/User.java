@@ -13,6 +13,8 @@ import com.santosh.ms.auth.service.request.UserRegisterDto;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+
 /**
  * @author santosh.kushwah
  * @since 11-02-2022
@@ -20,7 +22,7 @@ import lombok.NoArgsConstructor;
 @Data
 @Entity
 @NoArgsConstructor
-@Table(name = "user")
+@Table(name = "users")
 public class User {
 
 	@Id
@@ -48,7 +50,10 @@ public class User {
 
 	@Column(name = "email")
 	private String email;
-	
+
+	@Column(name = "created_on")
+	private LocalDate created_on;
+
 	public User(UserRegisterDto request) {
 		super();
 		this.username = request.getUsername();
